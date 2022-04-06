@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-interface InterfazDosNumeros {
+interface InterfazDosNumeros<T> {
 
 	public void operacion();
 }
@@ -10,7 +10,6 @@ public class MainLambdas {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int opcion;
-		boolean terminado;
 		System.out.println("OPERACIONES BÁSICAS USANDO FUNCIONES LAMBDAS");
 		System.out.println("¿Que operación le gustaría llevar a cabo?");
 		System.out.println("Elige una opción entre todas");
@@ -23,7 +22,7 @@ public class MainLambdas {
 		opcion = sc.nextInt();
 		switch (opcion) {
 		case 1:
-			InterfazDosNumeros iDN = () -> {
+			InterfazDosNumeros<Integer> iDN = () -> {
 				System.out.println("Has elegido la operación: SUMA");
 				int num1, num2, suma;
 				System.out.print("Introduce un numero: ");
@@ -51,32 +50,36 @@ public class MainLambdas {
 			iDN.operacion();
 			break;
 		case 3:
-			iDN = () -> {
+			InterfazDosNumeros<Float> iDN2 = () -> {
 				System.out.println("Has elegido la operación MULTIPLICACIÓN");
-				int num1, num2, mult;
+				System.out.println("Los números decimales introducidos deben tener el formato: 2,5 - 3,7 - 6,9");
+				System.out.println("No funcionan los decimales con punto -> 3.7 - 1.2");
+				double num1, num2, mult;
 				System.out.print("Introduce un numero: ");
-				num1 = sc.nextInt();
+				num1 = sc.nextDouble();
 				System.out.print("Introduce otro número: ");
-				num2 = sc.nextInt();
+				num2 = sc.nextDouble();
 				mult = num1 * num2;
 				System.out.println("La multiplicación de los números " + num1 + " y " + num2 + " es: " + mult);
 			};
 
-			iDN.operacion();
+			iDN2.operacion();
 			break;
 		case 4:
-			iDN = () -> {
+			iDN2 = () -> {
 				System.out.println("Has elegido la operación DIVISIÓN");
-				int num1, num2, div;
+				System.out.println("Los números decimales introducidos deben tener el formato: 2,5 - 3,7 - 6,9");
+				System.out.println("No funcionan los decimales con punto -> 3.7 - 1.2");
+				double num1, num2, div;
 				System.out.print("Introduce un numero: ");
-				num1 = sc.nextInt();
+				num1 = sc.nextDouble();
 				System.out.print("Introduce otro número: ");
-				num2 = sc.nextInt();
+				num2 = sc.nextDouble();
 				div = num1 / num2;
 				System.out.println("La división de los números " + num1 + " y " + num2 + " es: " + div);
 			};
 
-			iDN.operacion();
+			iDN2.operacion();
 			break;
 		case 5:
 			iDN = () -> {
